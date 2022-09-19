@@ -806,3 +806,16 @@ $databases['default']['default'] = array (
   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
 );
 $settings['config_sync_directory'] = 'sites/default/files/config_W45GvpVWzFbe1Stz1VkvhJ6OqVeA_L95HVZlO3GmBLpAxy5kjQxNAExtG7NxSBnSLDO8bYYPww/sync';
+
+# Development services.
+$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
+
+# Caching css js settings.
+$config['system.performance']['css']['preprocess'] = FALSE;
+$config['system.performance']['js']['preprocess'] = FALSE;
+
+$settings['cache']['bins']['render'] = 'cache.backend.null';
+$settings['cache']['bins']['page'] = 'cache.backend.null';
+$settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
+$settings['reverse_proxy'] = TRUE;
+$settings['reverse_proxy_addresses'] = array($_SERVER['REMOTE_ADDR']);
