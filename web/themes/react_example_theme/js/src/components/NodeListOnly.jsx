@@ -1,3 +1,4 @@
+import React from 'react';
 import {useEffect, useState} from "react";
 require('react-dom');
 window.React2 = require('react');
@@ -12,13 +13,12 @@ const NoData = () => (
   <div>No articles found</div>
 );
 
-const [filter, setFilter] = useState(null);
-
 const NodeListOnly = () => {
   const [content, setContent] = useState(false);
+  const [filter, setFilter] = useState(null);
 
   useEffect(() => {
-    const API_ROOT = '/drupal-try-again/web/jsonapi/';
+    const API_ROOT = '/DrupalAgain/web/jsonapi/';
     const url = `${API_ROOT}node/article?fields[node--article]=id,drupal_internal__nid,title,body&sort=-created&page[limit]=10`;
 
     const headers = new Headers({
